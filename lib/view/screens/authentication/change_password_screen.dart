@@ -44,6 +44,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             ],
            ),
            SizedBox(height: mediaQuerySize.height*0.2.h,),
+           // Changing password text with toggle: 
                          Obx(
                 () => CustomField(
                   text: 'Password',
@@ -67,24 +68,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   ),
                 ),
               ),
-          //  CustomField(
-          //           text: 'Password',
-          //           validator: (value) {
-          //             if (value!.isEmpty) {
-          //               return 'please enter your password';
-          //             }
-          //             return null;
-          //           },
-          //           isSuffixIcon: true,
-          //           suffixIcon: Obx(
-          //             () => IconButton(
-          //               icon: Icon(
-          //                 passwordController.isPasswordVisible.value ? Icons.lock_outline_sharp : Icons.lock_open,
-          //               ),
-          //               onPressed: passwordController.togglePasswordVisibility,
-          //             ),
-          //           ),
-          //         ),
+         
                   SizedBox(height: mediaQuerySize.height*0.03.h,),
                   CustomButton(
                     width: mediaQuerySize.width*0.9.w,
@@ -105,58 +89,4 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   }
 }
 
-
-
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-
-// import '../../widgets/customField.dart';
-
-// class PasswordController extends GetxController {
-//   var isPasswordVisible = false.obs;
-
-//   void togglePasswordVisibility() {
-//     isPasswordVisible.value = !isPasswordVisible.value;
-//   }
-// }
-
-// class ChangePasswordScreen extends StatefulWidget {
-//   @override
-//   State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
-// }
-
-// class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
-//   final PasswordController passwordController = PasswordController();
-
-
-
-//   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text("Change Password")),
-//       body: Padding(
-//         padding: const EdgeInsets.all(16.0),
-//         child: Form(
-//           key: formKey,
-//           child: Column(
-//             children: [
-
-//               SizedBox(height: 20),
-//               ElevatedButton(
-//                 onPressed: () {
-//                   if (formKey.currentState!.validate()) {
-//                     // Handle password change
-//                   }
-//                 },
-//                 child: Text("Change Password"),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 

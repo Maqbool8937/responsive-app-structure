@@ -5,6 +5,7 @@ import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
 
 
 import '../../../controllers/getxControllers/password_controller.dart';
+import '../../../controllers/utils/app_extension.dart';
 import '../../widgets/customField.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/social_mediaicon_widget.dart';
@@ -19,6 +20,7 @@ class LoginScreen extends StatefulWidget {
 
 GlobalKey<FormState> formKey = GlobalKey();
 PasswordController passwordController = Get.put(PasswordController());
+  final TextEditingController passwordFieldController = TextEditingController();
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
@@ -47,37 +49,45 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: mediaQuerySize.height * 0.03.h,
                 ),
-                CustomField(
-                  text: 'Email',
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'please enter your email';
-                    }
-                    return null;
-                  },
-                ),
+               CustomField(
+                text: 'Email',
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Please enter the email field';
+                  }
+                 
+                  if (!AppExtension.emailExtension.hasMatch(value.trim())) {
+                    return 'Please enter a valid email address';
+                  }
+                  return null;
+                },
+              ),
                 SizedBox(
                   height: mediaQuerySize.height * 0.03.h,
                 ),
-                CustomField(
+               Obx(
+                () => CustomField(
                   text: 'Password',
+                  controller: passwordFieldController,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'please enter your password';
+                      return 'Please enter your password';
                     }
                     return null;
                   },
+                  isPasswordField: true,
+                  isObscured: !passwordController.isPasswordVisible.value,
                   isSuffixIcon: true,
-                  suffixIcon: Obx(
-                    () => IconButton(
-                      icon: Icon(
-                        passwordController.isPasswordVisible.value ? Icons.visibility : Icons.visibility_off,
-                      ),
-                      onPressed: passwordController.togglePasswordVisibility,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      passwordController.isPasswordVisible.value
+                          ? Icons.visibility
+                          : Icons.visibility_off,
                     ),
+                    onPressed: passwordController.togglePasswordVisibility,
                   ),
                 ),
-                SizedBox(
+              ),                SizedBox(
                   height: mediaQuerySize.height * 0.03.h,
                 ),
                 Row(
@@ -112,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   name: 'Sign in',
                   onTap: () {
                     if (formKey.currentState!.validate() ?? false) {
-                    //  Get.to(() => BottomNavigationBarScreen());
+                      Get.to(() => ForgotPasswordScreen());
                     }
                     print('no');
                   },

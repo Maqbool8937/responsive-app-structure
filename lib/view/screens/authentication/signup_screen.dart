@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
+import 'package:stock_calculation_app/controllers/utils/app_extension.dart';
 
 
 import '../../../controllers/getxControllers/password_controller.dart';
@@ -22,8 +23,9 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   PasswordController passwordController = Get.put(PasswordController());
+  final TextEditingController passwordFieldController = TextEditingController();
 
-  // Country? _selectedCountry;
+
   GlobalKey<FormState> formKey = GlobalKey();
 
   @override
@@ -66,47 +68,63 @@ class _SignupScreenState extends State<SignupScreen> {
                   height: mediaQuerySize.height * 0.03.h,
                 ),
                 CustomField(
-                  text: '+92 | XXX-XXXXXXX',
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'please enter the following field';
-                    }
-                    return null;
-                  },
-                ),
+   text: '+92 | XXX-XXXXXXX',
+  validator: (value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter the phone number';
+    }
+    if (!AppExtension.phoneExtension.hasMatch(value.trim())) {
+      return 'Please enter a valid phone number';
+    }
+    return null;
+  },
+),
+
+               
                 SizedBox(
                   height: mediaQuerySize.height * 0.03.h,
                 ),
-                CustomField(
-                  text: 'Email',
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'please enter the following field';
-                    }
-                    return null;
-                  },
-                ),
+                  CustomField(
+                text: 'Email',
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Please enter the email field';
+                  }
+                 
+                  if (!AppExtension.emailExtension.hasMatch(value.trim())) {
+                    return 'Please enter a valid email address';
+                  }
+                  return null;
+                },
+              ),
+               
                 SizedBox(
                   height: mediaQuerySize.height * 0.03.h,
                 ),
-                CustomField(
+                 Obx(
+                () => CustomField(
                   text: 'Password',
+                  controller: passwordFieldController,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'please enter your password';
+                      return 'Please enter your password';
                     }
                     return null;
                   },
+                  isPasswordField: true,
+                  isObscured: !passwordController.isPasswordVisible.value,
                   isSuffixIcon: true,
-                  suffixIcon: Obx(
-                    () => IconButton(
-                      icon: Icon(
-                        passwordController.isPasswordVisible.value ? Icons.visibility : Icons.visibility_off,
-                      ),
-                      onPressed: passwordController.togglePasswordVisibility,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      passwordController.isPasswordVisible.value
+                          ? Icons.visibility
+                          : Icons.visibility_off,
                     ),
+                    onPressed: passwordController.togglePasswordVisibility,
                   ),
                 ),
+              ),
+            
                 SizedBox(
                   height: mediaQuerySize.height * 0.03.h,
                 ),

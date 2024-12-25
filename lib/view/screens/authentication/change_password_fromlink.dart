@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
 
 
+import '../../../controllers/utils/app_extension.dart';
 import '../../widgets/customField.dart';
 import '../../widgets/custom_button.dart';
 import 'successfully_reset_password.dart';
@@ -49,10 +50,14 @@ class ChangePasswordFromlink extends StatelessWidget {
                 height: mediaQuerySize.height * 0.03.h,
               ),
               CustomField(
-                text: 'Email',
+                text: 'Email Address',
                 validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'please enter your email';
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Please enter the email field';
+                  }
+                 
+                  if (!AppExtension.emailExtension.hasMatch(value.trim())) {
+                    return 'Please enter a valid email address';
                   }
                   return null;
                 },

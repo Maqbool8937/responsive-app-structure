@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
+import 'package:stock_calculation_app/view/screens/edit_profile_screens/edit_profile_one.dart';
 
 
+import '../../../controllers/utils/app_extension.dart';
 import '../../widgets/customField.dart';
 import '../../widgets/custom_button.dart';
 import 'successfully_reset_password.dart';
@@ -51,8 +53,12 @@ class ForgotPasswordScreen extends StatelessWidget {
               CustomField(
                 text: 'Email',
                 validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'please enter your email';
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Please enter the email field';
+                  }
+                 
+                  if (!AppExtension.emailExtension.hasMatch(value.trim())) {
+                    return 'Please enter a valid email address';
                   }
                   return null;
                 },
@@ -65,7 +71,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 name: 'Send Reset Link',
                 onTap: () {
                   if (formKey.currentState!.validate() ?? false) {
-                    Get.to(() => SuccessfullyPasswordResetted());
+                    Get.to(() => EditProfileOne());
                   }
                 },
               ),
@@ -83,7 +89,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                     children: [
                       Text('  Back to', style: TextStyle(color: Colors.grey, fontSize: 14, fontWeight: FontWeight.bold)),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            // Get.to(() => EditProfileOne());
+                          },
                           child: Text(
                             'Log in',
                             style: TextStyle(color: AppColors.buttonColor, fontSize: 16, fontWeight: FontWeight.bold),
