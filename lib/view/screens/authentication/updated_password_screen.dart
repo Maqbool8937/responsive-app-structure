@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
 
 import '../../widgets/custom_button.dart';
 import 'login_screen.dart';
@@ -14,7 +15,8 @@ class UpdatedPasswordScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+            padding:  EdgeInsets.symmetric(vertical: mediaQuerySize.height*0.03.h,horizontal: mediaQuerySize.width*0.08.w),
+       
         child: Column(
           children: [
             SizedBox(
@@ -23,17 +25,18 @@ class UpdatedPasswordScreen extends StatelessWidget {
             Center(
                 child: Text(
               'Successfully',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Color(0xff4D4D4D)),
+              style: AppTextstyles.BoldBlackText()
             )),
             SizedBox(
               height: mediaQuerySize.height * 0.02.h,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal:  mediaQuerySize.width*0.03.w, vertical: mediaQuerySize.height*0.02.h),
               child: Center(
                 child: Text(
                   'Your password has been updated, please change your password regularly to avoid this happening ',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.grey),
+                  style: AppTextstyles.simpleGreyText()
+                 // style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.grey),
                 ),
               ),
             ),
@@ -45,7 +48,7 @@ class UpdatedPasswordScreen extends StatelessWidget {
                 Get.to(() => LoginScreen());
               },
               name: 'Back To Profile',
-              width: mediaQuerySize.width * 0.9,
+              width: mediaQuerySize.width * 0.9.w,
             ),
             SizedBox(
               height: mediaQuerySize.height * 0.03.h,

@@ -12,7 +12,7 @@ import 'view/screens/authentication/register_successfull.dart';
 
 import 'view/screens/authentication/signUp.dart';
 import 'view/screens/authentication/signup_screen.dart';
-import 'view/screens/authentication/successfully_reset_password.dart';
+import 'view/screens/authentication/back_to_profile.dart';
 import 'view/screens/authentication/updated_password_screen.dart';
 import 'view/screens/authentication/verification_code_screen.dart';
 import 'view/screens/booster_magazene.dart';
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       designSize: Size(mediaQuerySize.width, mediaQuerySize.height),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: GetMaterialApp(debugShowCheckedModeBanner: false, home: EditProfileOne()),
+      child: GetMaterialApp(debugShowCheckedModeBanner: false, home: ImageScreen()),
     );
   }
 }

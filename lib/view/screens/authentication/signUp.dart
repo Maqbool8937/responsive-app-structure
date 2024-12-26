@@ -11,12 +11,12 @@ class Signup extends StatelessWidget {
     Size mediaQuerySize = MediaQuery.of(context).size;
     return Scaffold(
    body: SafeArea(child: Padding(
-     padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+     padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.01.w,vertical: mediaQuerySize.height*0.01.h),
      child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Center(child: Text('Select Your Role',style:TextStyle(fontSize: 22,fontWeight: FontWeight.w700))),
+        Center(child: Text('Select Your Role',style:AppTextstyles.BoldBlackText())),
         SizedBox(height: mediaQuerySize.height*0.03.h,),
         CustomButton(name: 'Admin'),
         SizedBox(height: mediaQuerySize.height*0.02.h,),

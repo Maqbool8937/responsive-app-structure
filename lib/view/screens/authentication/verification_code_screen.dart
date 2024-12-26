@@ -3,6 +3,7 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
+import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
 
 
 import '../../../controllers/getxControllers/otp_verifi_cpntroller.dart';
@@ -21,28 +22,28 @@ class VerificationCodeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          padding:  EdgeInsets.symmetric(vertical: mediaQuerySize.height*0.02.h, horizontal: mediaQuerySize.width*0.03.w),
           child: Column(
             children: [
               ArrowBackButton(backgroundColor: Colors.black.withOpacity(0.07)),
-              SizedBox(height: mediaQuerySize.height * 0.06),
+              SizedBox(height: mediaQuerySize.height * 0.06.h),
               Center(
                 child: Text(
                   'Verification Code',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  style: AppTextstyles.BoldBlackText()
                 ),
               ),
               SizedBox(height: mediaQuerySize.height * 0.02),
               Text(
                 'Enter your Email Address to receive ',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                style: AppTextstyles.simpleGreyText()
               ),
               SizedBox(height: mediaQuerySize.height * 0.01),
               Text(
                 'email address.',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                style: AppTextstyles.simpleGreyText()
               ),
-              SizedBox(height: mediaQuerySize.height * 0.03),
+              SizedBox(height: mediaQuerySize.height * 0.03.h),
               OtpTextField(
   borderRadius: BorderRadius.circular(15),
   numberOfFields: 4,
@@ -51,24 +52,18 @@ class VerificationCodeScreen extends StatelessWidget {
   focusedBorderColor: AppColors.buttonColor,
   cursorColor: Colors.blue,
   showFieldAsBox: true,
-  margin: const EdgeInsets.symmetric(horizontal: 12), // Increase horizontal spacing
+  margin:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.02.w), // Increase horizontal spacing
   onCodeChanged: (String code) {
     // Handle changes if needed
   },
   onSubmit: (String verificationCode) {
-    // Trigger when all fields are filled
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (context) => SuccessScreen(otp: verificationCode),
-    //   ),
-    // );
+   
   },
 )
 ,
-              SizedBox(height: mediaQuerySize.height * 0.04),
+              SizedBox(height: mediaQuerySize.height * 0.04.h),
               CustomButton(
-                  width: mediaQuerySize.width * 0.7.w,
+                  width: mediaQuerySize.width * 0.8.w,
                   name: 'Confirm',
                   onTap: (){},
                 

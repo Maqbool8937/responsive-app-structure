@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
 import 'package:stock_calculation_app/view/screens/authentication/change_password_fromlink.dart';
 
 import 'package:stock_calculation_app/view/widgets/customField.dart';
@@ -24,7 +25,7 @@ class _EditProfileTwoState extends State<EditProfileTwo> {
   Widget build(BuildContext context) {
     Size mediaQuerySize = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(child: Padding(padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+      body: SafeArea(child: Padding(padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.01.w,vertical: mediaQuerySize.height*0.03.h),
       child: SingleChildScrollView(
         child: Form(
           key: formKey,
@@ -114,7 +115,7 @@ class _EditProfileTwoState extends State<EditProfileTwo> {
             child: TextButton(onPressed: (){
               Get.to(()=>ChangePasswordFromlink());
             },
-             child: Text('Save Changes',style: TextStyle(color: AppColors.buttonColor,fontSize: 16,fontWeight: FontWeight.w600),)),
+             child: Text('Save Changes',style: AppTextstyles.simpleRedText(),)),
           ),
            // CustomButton(name: 'Edit Details',width: mediaQuerySize.width*0.9.w,),
             SizedBox(height: mediaQuerySize.height*0.1.h,),

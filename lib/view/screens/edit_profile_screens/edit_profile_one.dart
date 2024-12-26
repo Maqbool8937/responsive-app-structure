@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
 
 import 'package:stock_calculation_app/view/widgets/customField.dart';
 import 'package:stock_calculation_app/view/widgets/custom_button.dart';
@@ -22,7 +23,7 @@ class _EditProfileOneState extends State<EditProfileOne> {
   Widget build(BuildContext context) {
     Size mediaQuerySize = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(child: Padding(padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+      body: SafeArea(child: Padding(padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.01.w,vertical: mediaQuerySize.height*0.03.h),
       child: SingleChildScrollView(
         child: Form(
           key: formKey,
@@ -38,7 +39,7 @@ class _EditProfileOneState extends State<EditProfileOne> {
             ],
            ),
            SizedBox(height: mediaQuerySize.height*0.1.h,),
-           Center(child: Text('Hello! ABC',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),),
+           Center(child: Text('Hello! ABC',style: AppTextstyles.BoldBlackText())),
             SizedBox(height: mediaQuerySize.height*0.06.h,),
            Image.asset('assets/images/edit.png'),
            SizedBox(height: mediaQuerySize.height*0.03.h,),
@@ -100,6 +101,7 @@ class _EditProfileOneState extends State<EditProfileOne> {
                 ),
             SizedBox(height: mediaQuerySize.height*0.04.h,),
              CustomButton(
+              width: mediaQuerySize.width*0.9.w,
                   name: 'Edit Deatils',
                   onTap: () {
                     if (formKey.currentState!.validate()) {
@@ -107,7 +109,7 @@ class _EditProfileOneState extends State<EditProfileOne> {
                     }
                   },
                 ),
-           // CustomButton(name: 'Edit Details',width: mediaQuerySize.width*0.9.w,),
+          
             SizedBox(height: mediaQuerySize.height*0.1.h,),
           
             ],

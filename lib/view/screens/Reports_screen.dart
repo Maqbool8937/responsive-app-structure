@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
+import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
 import 'package:stock_calculation_app/view/widgets/customField.dart';
 import 'package:stock_calculation_app/view/widgets/custom_button.dart';
 
@@ -13,7 +14,7 @@ class ReportsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size mediaQuerySize = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(child: Padding(padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+      body: SafeArea(child: Padding(padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.02.w,vertical: mediaQuerySize.height*0.04.h),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -31,14 +32,14 @@ class ReportsScreen extends StatelessWidget {
           height: mediaQuerySize.height*0.08.h,
           width: mediaQuerySize.width*0.9.w,
           decoration: BoxDecoration(
-            color: AppColors.buttonColor,borderRadius: BorderRadius.circular(10)
+            color: AppColors.buttonColor,borderRadius: BorderRadius.circular(mediaQuerySize.width*0.03.w)
           ),
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.03.w,vertical: mediaQuerySize.height*0.01.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Detonator Magazine',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),),
+                Text('Detonator Magazine',style: AppTextstyles.simpleTextBold()),
                 Container(
                   height: mediaQuerySize.height*0.12.h,
                   width: mediaQuerySize.width*0.12.w,
@@ -61,14 +62,14 @@ class ReportsScreen extends StatelessWidget {
           height: mediaQuerySize.height*0.08.h,
           width: mediaQuerySize.width*0.9.w,
           decoration: BoxDecoration(
-            color: AppColors.buttonColor,borderRadius: BorderRadius.circular(10)
+            color: AppColors.buttonColor,borderRadius: BorderRadius.circular(mediaQuerySize.width*0.03.w)
           ),
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.03.w,vertical: mediaQuerySize.height*0.01.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Booster Magazine',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),),
+                Text('Booster Magazine',style: AppTextstyles.simpleTextBold(),),
                 Container(
                   height: mediaQuerySize.height*0.12.h,
                   width: mediaQuerySize.width*0.12.w,
@@ -108,7 +109,7 @@ class ReportsScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(height: mediaQuerySize.height*0.03.h,),
-                      Center(child: Text('4423 units',style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold),)),
+                      Center(child: Text('4423 units',style: AppTextstyles.FullBlackBoldText())),
                       SizedBox(height: mediaQuerySize.height*0.01.h,),
                       Container(
                          height: mediaQuerySize.height*0.04.h,

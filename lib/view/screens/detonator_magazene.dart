@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
+import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
 import 'package:stock_calculation_app/view/widgets/customField.dart';
 import 'package:stock_calculation_app/view/widgets/custom_button.dart';
 
@@ -14,7 +15,7 @@ class DetonatorMagazene extends StatelessWidget {
   Widget build(BuildContext context) {
     Size mediaQuerySize = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(child: Padding(padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+      body: SafeArea(child: Padding(padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.02.w,vertical: mediaQuerySize.height*0.03.h),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -30,13 +31,13 @@ class DetonatorMagazene extends StatelessWidget {
          SizedBox(height: mediaQuerySize.height*0.1.h,),
         Container(
           height: mediaQuerySize.height*0.07.h,
-          width: mediaQuerySize.width*0.9.w,
+          width: mediaQuerySize.width*0.88.w,
           decoration: BoxDecoration(
-            color: AppColors.buttonColor,borderRadius: BorderRadius.circular(10)
+            color: AppColors.buttonColor,borderRadius: BorderRadius.circular(mediaQuerySize.width*0.03.w)
           ),
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Center(child: Text('Detonator Magazine',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),)),
+            padding:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.01.w,vertical: mediaQuerySize.height*0.01.h),
+            child: Center(child: Text('Detonator Magazine',style: AppTextstyles.simpleTextBold(),)),
           ),
         ),
          SizedBox(height: mediaQuerySize.height*0.03.h,),
@@ -48,7 +49,7 @@ class DetonatorMagazene extends StatelessWidget {
                   decoration: BoxDecoration(
             
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(mediaQuerySize.width*0.03.w),
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 3,
@@ -68,9 +69,9 @@ class DetonatorMagazene extends StatelessWidget {
                   width: mediaQuerySize.width*0.4.w,
                         decoration: BoxDecoration(
                           color: AppColors.buttonColor,
-                          borderRadius: BorderRadius.circular(10)
+                          borderRadius: BorderRadius.circular(mediaQuerySize.width*0.03.w)
                         ),
-                        child:Center(child: Text('All are Stack of 6',style: TextStyle(color: Colors.white),))
+                        child:Center(child: Text('All are Stack of 6',style: AppTextstyles.simpleText(),))
                       ),
                       SizedBox(height: mediaQuerySize.height*0.02.h,),
                      CommonStackBox(text: '18m: 52 units/box',width: mediaQuerySize.width * 0.4.w,),
@@ -102,7 +103,7 @@ class DetonatorMagazene extends StatelessWidget {
               borderRadius: BorderRadius.circular(15)
             ),
             child: TextButton(onPressed: (){},
-             child: Text('Edit data',style: TextStyle(color: AppColors.buttonColor,fontSize: 16,fontWeight: FontWeight.w600),)),
+             child: Text('Edit data',style: AppTextstyles.simpleRedText())),
           ),
           
      

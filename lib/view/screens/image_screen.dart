@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ImageScreen extends StatelessWidget {
   const ImageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Size mediaQuerySize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.08.w,vertical: mediaQuerySize.height*0.03.h),
           child: Stack(
             children: [
               // Long text at the bottom
@@ -29,7 +31,7 @@ class ImageScreen extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 44,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ),

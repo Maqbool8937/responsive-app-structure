@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
+import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
 
 
 import '../../../controllers/utils/app_extension.dart';
 import '../../widgets/customField.dart';
 import '../../widgets/custom_button.dart';
-import 'successfully_reset_password.dart';
+import 'back_to_profile.dart';
 
 class ChangePasswordFromlink extends StatelessWidget {
   ChangePasswordFromlink({super.key});
@@ -19,7 +20,7 @@ class ChangePasswordFromlink extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+        padding:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.04.w,vertical: mediaQuerySize.height*0.03.h),
         child: Form(
           key: formKey,
           child: Column(
@@ -30,21 +31,21 @@ class ChangePasswordFromlink extends StatelessWidget {
               Center(
                   child: Text(
                 'Change Password',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                style: AppTextstyles.BoldBlackText(),
               )),
               SizedBox(
                 height: mediaQuerySize.height * 0.02.h,
               ),
               Text(
                 'Enter your Email Address to receive ',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                style: AppTextstyles.simpleGreyText()
               ),
               SizedBox(
                 height: mediaQuerySize.height * 0.01.h,
               ),
               Text(
                 'a password reset link. ',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                style: AppTextstyles.simpleGreyText()
               ),
               SizedBox(
                 height: mediaQuerySize.height * 0.03.h,
@@ -70,7 +71,7 @@ class ChangePasswordFromlink extends StatelessWidget {
                 name: 'Send Reset Link',
                 onTap: () {
                   if (formKey.currentState!.validate() ?? false) {
-                    Get.to(() => SuccessfullyPasswordResetted());
+                    Get.to(() => BackToProfile());
                   }
                 },
               ),
@@ -82,16 +83,16 @@ class ChangePasswordFromlink extends StatelessWidget {
                 children: [
                   Text(
                     'Remember Password?',
-                    style: TextStyle(color: Colors.grey, fontSize: 14, fontWeight: FontWeight.bold),
+                    style: AppTextstyles.simpleGreyText()
                   ),
                   Row(
                     children: [
-                      Text('  Back to', style: TextStyle(color: Colors.grey, fontSize: 14, fontWeight: FontWeight.bold)),
+                      Text('  Back to', style: AppTextstyles.simpleGreyText()),
                       TextButton(
                           onPressed: () {},
                           child: Text(
                             'Log in',
-                            style: TextStyle(color: AppColors.buttonColor, fontSize: 16, fontWeight: FontWeight.bold),
+                            style: AppTextstyles.simpleRedText()
                           ))
                     ],
                   )

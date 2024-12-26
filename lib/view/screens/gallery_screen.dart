@@ -13,7 +13,7 @@ class GalleryScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.02.w,vertical: mediaQuerySize.height*0.03.h),
           child: Column(
             children: [
               SizedBox(height: mediaQuerySize.height * 0.03),
@@ -39,7 +39,7 @@ class GalleryScreen extends StatelessWidget {
               SizedBox(height: mediaQuerySize.height * 0.06),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.01.w,vertical: mediaQuerySize.height*0.02.h),
                   child: GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 4, // 4 items per row
@@ -51,11 +51,9 @@ class GalleryScreen extends StatelessWidget {
                     itemCount: 24, // Total items (4 columns * 6 rows = 24)
                     itemBuilder: (context, index) {
                       return Container(
-                          //  height: mediaQuerySize.height*0.15.h,
-                          //  width: mediaQuerySize.width*0.3.w,
                         decoration: BoxDecoration(
                           color: Color(0xff959595),
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(mediaQuerySize.width*0.03.w),
                         ),
                         child: Align(
                           alignment: Alignment.bottomCenter,
@@ -88,15 +86,3 @@ class GalleryScreen extends StatelessWidget {
 }
 
 
-
-//  Container(
-        //   height: mediaQuerySize.height*0.15.h,
-        //   width: mediaQuerySize.width*0.3.w,
-        //   decoration: BoxDecoration(
-        //     color: Color(0xff959595),
-        //     borderRadius: BorderRadius.circular(10)
-        //   ),
-        //   child: Align(
-        //     alignment: Alignment.bottomCenter,
-        //     child: Text('Remaining')),
-        //  )
