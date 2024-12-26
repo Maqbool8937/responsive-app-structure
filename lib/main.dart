@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-
 import 'view/screens/Reports_screen.dart';
 import 'view/screens/authentication/change_password_fromlink.dart';
 import 'view/screens/authentication/change_password_screen.dart';
@@ -38,7 +37,8 @@ class MyApp extends StatelessWidget {
       designSize: Size(mediaQuerySize.width, mediaQuerySize.height),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: GetMaterialApp(debugShowCheckedModeBanner: false, home: ImageScreen()),
+      child: GetMaterialApp(
+          debugShowCheckedModeBanner: false, home: EditProfileOne()),
     );
   }
 }
