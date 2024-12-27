@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+
 import 'view/screens/Reports_screen.dart';
 import 'view/screens/authentication/change_password_fromlink.dart';
 import 'view/screens/authentication/change_password_screen.dart';
@@ -15,11 +16,14 @@ import 'view/screens/authentication/back_to_profile.dart';
 import 'view/screens/authentication/updated_password_screen.dart';
 import 'view/screens/authentication/verification_code_screen.dart';
 import 'view/screens/booster_magazene.dart';
+import 'view/screens/bottom_navbar_screen.dart';
 import 'view/screens/detonator_magazene.dart';
 import 'view/screens/edit_profile_screens/edit_profile_one.dart';
 import 'view/screens/edit_profile_screens/edit_profile_two.dart';
+import 'view/screens/features/daily_usage.dart';
 import 'view/screens/gallery_screen.dart';
 import 'view/screens/image_screen.dart';
+import 'view/widgets/alertdialog_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,7 +42,8 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: GetMaterialApp(
-          debugShowCheckedModeBanner: false, home: EditProfileOne()),
+          debugShowCheckedModeBanner: false,
+           home: HomeScreen()),
     );
   }
 }

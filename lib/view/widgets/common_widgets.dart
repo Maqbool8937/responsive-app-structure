@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stock_calculation_app/utils/colors.dart';
-import 'package:stock_calculation_app/utils/image_constant.dart';
+
+
+import '../../controllers/utils/colors.dart';
+import '../../controllers/utils/image_constant.dart';
 
 buildAppBar(String title) {
   return AppBar(

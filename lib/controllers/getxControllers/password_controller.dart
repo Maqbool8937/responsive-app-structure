@@ -12,4 +12,5 @@ class PasswordController extends GetxController {
   void togglePasswordVisibility() {
     isPasswordVisible.value = !isPasswordVisible.value;
   }
+  
 }

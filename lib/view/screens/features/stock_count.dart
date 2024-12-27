@@ -1,22 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:stock_calculation_app/utils/colors.dart';
-import 'package:stock_calculation_app/widgets/add_type_card.dart';
-import 'package:stock_calculation_app/widgets/common_dropdown.dart';
-import 'package:stock_calculation_app/widgets/common_widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+
+
+import '../../../controllers/utils/app_colors.dart';
+import '../../../controllers/utils/colors.dart';
+import '../../widgets/add_type_card.dart';
+import '../../widgets/common_dropdown.dart';
+import '../../widgets/common_widgets.dart';
+import '../../widgets/custom_button.dart';
+
+
 
 class StockCount extends StatelessWidget {
   const StockCount({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Size mediaQuerySize = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: buildAppBar("Stock Count"),
+           
             body: Container(
               margin: EdgeInsets.all(10),
               child: ListView(
                 children: [
+                SizedBox(height: mediaQuerySize.height*0.03.h,),
+                    Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            
+            Image.asset('assets/images/edit_icon.png',fit: BoxFit.cover,),
+            CustomButton(name: 'Stock Count',width: mediaQuerySize.width*0.4.w,),
+            Image.asset('assets/images/menu.png',fit: BoxFit.contain,)
+          ],),
+          SizedBox(height: mediaQuerySize.height*0.02.h,),
                   DropdownInCard(
                     hintText: "Choose Location",
                     items: [
@@ -387,6 +406,18 @@ class StockCount extends StatelessWidget {
                   ),
                 ],
               ),
-            )));
+            ),
+             floatingActionButton: FloatingActionButton.small(
+  onPressed: () {},
+  backgroundColor: AppColors.buttonColor,
+  shape: CircleBorder(), // Ensures a circular shape
+  child: Icon(
+    Icons.add,
+    color: Colors.white,
+    size: 35,
+  ),
+),
+            ),
+            );
   }
 }
