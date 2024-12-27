@@ -4,6 +4,7 @@ import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
 import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
 import 'package:stock_calculation_app/view/widgets/custom_button.dart';
 
+import '../widgets/alertdialog_widget.dart';
 import '../widgets/reports_card_widget.dart';
 
 class ReportsScreen extends StatelessWidget {
@@ -190,16 +191,7 @@ class ReportsScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton.small(
-        onPressed: () {},
-        backgroundColor: AppColors.buttonColor,
-        shape: CircleBorder(), // Ensures a circular shape
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-          size: 35,
-        ),
-      ),
+      floatingActionButton: AlertdialogWidget(),
     );
   }
 }

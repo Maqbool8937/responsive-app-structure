@@ -3,7 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:stock_calculation_app/view/screens/Reports_screen.dart';
 import 'package:stock_calculation_app/view/screens/authentication/signUp.dart';
+
+import 'view/screens/bottom_navbar_screen.dart';
+import 'view/widgets/alertdialog_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding();
@@ -22,7 +26,7 @@ class MyApp extends StatelessWidget {
       designSize: Size(mediaQuerySize.width, mediaQuerySize.height),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: GetMaterialApp(debugShowCheckedModeBanner: false, home: Signup()),
+      child: GetMaterialApp(debugShowCheckedModeBanner: false, home:BottomNavbarScreen()),
     );
   }
 }

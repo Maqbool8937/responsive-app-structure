@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../controllers/utils/app_colors.dart';
 import '../../../controllers/utils/colors.dart';
 import '../../widgets/add_type_card.dart';
+import '../../widgets/alertdialog_widget.dart';
 import '../../widgets/common_dropdown.dart';
 import '../../widgets/common_widgets.dart';
 import '../../widgets/custom_button.dart';
@@ -407,16 +408,7 @@ class StockCount extends StatelessWidget {
                 ],
               ),
             ),
-             floatingActionButton: FloatingActionButton.small(
-  onPressed: () {},
-  backgroundColor: AppColors.buttonColor,
-  shape: CircleBorder(), // Ensures a circular shape
-  child: Icon(
-    Icons.add,
-    color: Colors.white,
-    size: 35,
-  ),
-),
+             floatingActionButton: AlertdialogWidget(),
             ),
             );
   }

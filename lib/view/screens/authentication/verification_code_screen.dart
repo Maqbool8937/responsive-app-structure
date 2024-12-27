@@ -6,7 +6,7 @@ import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
 import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
 
 
-import '../../../controllers/getxControllers/otp_verifi_cpntroller.dart';
+import '../../../controllers/getxControllers/otp_verifi_controller.dart';
 import '../../widgets/arrow_back_button.dart';
 import '../../widgets/custom_button.dart';
 
