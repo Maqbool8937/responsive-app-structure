@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "133972280376",
+    "project_id": "check-66078",
+    "storage_bucket": "check-66078.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133972280376:android:36d7be14bbe8c8c7c292cd",
+        "android_client_info": {
+          "package_name": "com.example.stock_calculation_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv3aH2onMfEm2f4UousPoR_gTwYBO_DtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

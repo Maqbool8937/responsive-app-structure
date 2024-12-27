@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
 import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
+import 'package:stock_calculation_app/view/screens/image_screen.dart';
 
-
-import '../../../controllers/getxControllers/password_controller.dart';
+import '../../../controllers/getxControllers/auth_controllers.dart';
 import '../../../controllers/utils/app_extension.dart';
 import '../../widgets/customField.dart';
 import '../../widgets/custom_button.dart';
@@ -20,193 +19,197 @@ class LoginScreen extends StatefulWidget {
 }
 
 GlobalKey<FormState> formKey = GlobalKey();
-PasswordController passwordController = Get.put(PasswordController());
-  final TextEditingController passwordFieldController = TextEditingController();
+AuthControllers authControllers = Get.put(AuthControllers());
+final TextEditingController emailControler = TextEditingController();
+
+final TextEditingController passwordController = TextEditingController();
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     Size mediaQuerySize = MediaQuery.of(context).size;
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-            child: Form(
-          key: formKey,
-          child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.05.w, vertical: mediaQuerySize.height*0.01.h),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: mediaQuerySize.height * 0.08.h,
-                ),
-                Center(
-                    child: Text(
-                  'Welcome Back',
-                  style: AppTextstyles.BoldBlackText()
-                )),
-                SizedBox(
-                  height: mediaQuerySize.height * 0.02.h,
-                ),
-                SizedBox(
-                  height: mediaQuerySize.height * 0.03.h,
-                ),
-               CustomField(
-                text: 'Email',
-                validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return 'Please enter the email field';
-                  }
-                 
-                  if (!AppExtension.emailExtension.hasMatch(value.trim())) {
-                    return 'Please enter a valid email address';
-                  }
-                  return null;
-                },
-              ),
-                SizedBox(
-                  height: mediaQuerySize.height * 0.03.h,
-                ),
-               Obx(
-                () => CustomField(
-                  text: 'Password',
-                  controller: passwordFieldController,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    return null;
-                  },
-                  isPasswordField: true,
-                  isObscured: !passwordController.isPasswordVisible.value,
-                  isSuffixIcon: true,
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      passwordController.isPasswordVisible.value
-                          ? Icons.visibility
-                          : Icons.visibility_off,
-                    ),
-                    onPressed: passwordController.togglePasswordVisibility,
+    return Obx(() {
+      return Scaffold(
+        body: SingleChildScrollView(
+          child: SafeArea(
+              child: Form(
+            key: formKey,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width * 0.05.w, vertical: mediaQuerySize.height * 0.01.h),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: mediaQuerySize.height * 0.08.h,
                   ),
-                ),
-              ),                SizedBox(
-                  height: mediaQuerySize.height * 0.03.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.circle_outlined,
-                          size: 20,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'Remember Password',
-                          style: AppTextstyles.SimpleBlackText()
-                        ),
-                      ],
-                    ),
-                    TextButton(
-                        onPressed: () {
-                          Get.to(() => ForgotPasswordScreen());
-                        },
-                        child: Text('Forget Password?', style: AppTextstyles.SimpleBlackText())),
-                  ],
-                ),
-                SizedBox(
-                  height: mediaQuerySize.height * 0.03.h,
-                ),
-                CustomButton(
-                  name: 'Sign in',
-                  onTap: () {
-                    if (formKey.currentState!.validate() ?? false) {
-                      Get.to(() => ForgotPasswordScreen());
-                    }
-                    print('no');
-                  },
-                ),
-                SizedBox(
-                  height: mediaQuerySize.height * 0.03.h,
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        color: Colors.grey,
-                        thickness: 1,
+                  Center(child: Text('Welcome Back', style: AppTextstyles.BoldBlackText())),
+                  SizedBox(
+                    height: mediaQuerySize.height * 0.02.h,
+                  ),
+                  SizedBox(
+                    height: mediaQuerySize.height * 0.03.h,
+                  ),
+                  CustomField(
+                    controller: emailControler,
+                    text: 'Email',
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return 'Please enter the email field';
+                      }
+
+                      if (!AppExtension.emailExtension.hasMatch(value.trim())) {
+                        return 'Please enter a valid email address';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: mediaQuerySize.height * 0.03.h,
+                  ),
+                  CustomField(
+                    text: 'Password',
+                    controller: passwordController,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter your password';
+                      }
+                      return null;
+                    },
+                    isPasswordField: true,
+                    isObscured: !authControllers.isPasswordVisible.value,
+                    isSuffixIcon: true,
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        authControllers.isPasswordVisible.value ? Icons.visibility : Icons.visibility_off,
                       ),
+                      onPressed: authControllers.togglePasswordVisibility,
                     ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.02.w),
-                      child: Text(
-                        'Or With',
-                        style: AppTextstyles.simpleGreyText()
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        color: Colors.grey,
-                        thickness: 1,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: mediaQuerySize.height * 0.02.h,
-                ),
-                Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.01.w,vertical: mediaQuerySize.height*0.01.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                  SizedBox(
+                    height: mediaQuerySize.height * 0.03.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SocialMediaIconsRow(
-                        imgUrl: 'assets/images/google3.png',
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.circle_outlined,
+                            size: 20,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text('Remember Password', style: AppTextstyles.SimpleBlackText()),
+                        ],
                       ),
-                      SizedBox(
-                        width: 15,
+                      TextButton(
+                          onPressed: () {
+                            Get.to(() => ForgotPasswordScreen());
+                          },
+                          child: Text('Forget Password?', style: AppTextstyles.SimpleBlackText())),
+                    ],
+                  ),
+                  SizedBox(
+                    height: mediaQuerySize.height * 0.03.h,
+                  ),
+                  CustomButton(
+                    isLoading: authControllers.isLoading.value,
+                    name: 'Sign in',
+                    onTap: () async {
+                      if (formKey.currentState!.validate()) {
+                        await authControllers
+                            .signInWithEmailAndPassword(
+                          email: emailControler.text.trim(),
+                          password: passwordController.text.trim(),
+                        )
+                            .then(
+                          (value) {
+                            if (value == true) {
+                              return Get.to(() => ImageScreen());
+                            } else {
+                              print('the error');
+                            }
+                          },
+                        );
+
+                        // Get.to(() => ForgotPasswordScreen());
+                      }
+                      print('no');
+                    },
+                  ),
+                  SizedBox(
+                    height: mediaQuerySize.height * 0.03.h,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          color: Colors.grey,
+                          thickness: 1,
+                        ),
                       ),
-                      SocialMediaIconsRow(
-                        imgUrl: 'assets/images/fb.png',
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width * 0.02.w),
+                        child: Text('Or With', style: AppTextstyles.simpleGreyText()),
                       ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      SocialMediaIconsRow(
-                        imgUrl: 'assets/images/appl_img.png',
+                      Expanded(
+                        child: Divider(
+                          color: Colors.grey,
+                          thickness: 1,
+                        ),
                       ),
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: mediaQuerySize.height * 0.015.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'If you dont have account',
-                      style: AppTextstyles.simpleGreyText()
+                  SizedBox(
+                    height: mediaQuerySize.height * 0.02.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width * 0.01.w, vertical: mediaQuerySize.height * 0.01.h),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SocialMediaIconsRow(
+                          imgUrl: 'assets/images/google3.png',
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        SocialMediaIconsRow(
+                          imgUrl: 'assets/images/fb.png',
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        SocialMediaIconsRow(
+                          imgUrl: 'assets/images/appl_img.png',
+                        ),
+                      ],
                     ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Sign Up',
-                          style: AppTextstyles.simpleRedText(),
-                        ))
-                  ],
-                ),
-                SizedBox(
-                  height: mediaQuerySize.height * 0.03.h,
-                ),
-               
-              ],
+                  ),
+                  SizedBox(
+                    height: mediaQuerySize.height * 0.015.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('If you dont have account', style: AppTextstyles.simpleGreyText()),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Sign Up',
+                            style: AppTextstyles.simpleRedText(),
+                          ))
+                    ],
+                  ),
+                  SizedBox(
+                    height: mediaQuerySize.height * 0.03.h,
+                  ),
+                ],
+              ),
             ),
-          ),
-        )),
-      ),
-    );
+          )),
+        ),
+      );
+    });
   }
 }

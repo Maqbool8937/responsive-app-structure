@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stock_calculation_app/utils/colors.dart';
-import 'package:stock_calculation_app/widgets/add_type_card.dart';
-import 'package:stock_calculation_app/widgets/common_dropdown.dart';
 import 'package:stock_calculation_app/widgets/common_widgets.dart';
 
 class DailyUsage extends StatelessWidget {
@@ -25,8 +23,7 @@ class DailyUsage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          buildCommonTextField("Enter the required units",
-                              label: "Required Units"),
+                          buildCommonTextField("Enter the required units", label: "Required Units"),
                         ],
                       ),
                     ),
@@ -38,14 +35,11 @@ class DailyUsage extends StatelessWidget {
                         Expanded(
                           child: Container(
                             padding: EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                                color: AppColor.primaryColor,
-                                borderRadius: BorderRadius.circular(12)),
+                            decoration: BoxDecoration(color: AppColor.primaryColor, borderRadius: BorderRadius.circular(12)),
                             child: Center(
                               child: Text(
                                 "Calculate",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 18),
+                                style: TextStyle(color: Colors.white, fontSize: 18),
                               ),
                             ),
                           ),
@@ -62,26 +56,20 @@ class DailyUsage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 5),
+                            margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                             width: double.infinity,
-                            padding: EdgeInsets.symmetric(
-                                vertical: 4.0, horizontal: 8),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: AppColor.primaryColor),
+                            padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: AppColor.primaryColor),
                             child: Center(
                               child: Text(
                                 "Daily Usage",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
+                                style: TextStyle(color: Colors.white, fontSize: 16),
                               ),
                             ),
                           ),
                           Text(
                             "Take out 3 boxes and 44 units",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w400),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),
@@ -91,8 +79,7 @@ class DailyUsage extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       "Stock Update",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                   ),
                   Card(
@@ -103,8 +90,7 @@ class DailyUsage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          buildCommonTextField("Enter the of unused units",
-                              label: "Unused Units"),
+                          buildCommonTextField("Enter the of unused units", label: "Unused Units"),
                         ],
                       ),
                     ),
@@ -119,14 +105,11 @@ class DailyUsage extends StatelessWidget {
                         Expanded(
                           child: Container(
                             padding: EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                                color: AppColor.primaryColor,
-                                borderRadius: BorderRadius.circular(12)),
+                            decoration: BoxDecoration(color: AppColor.primaryColor, borderRadius: BorderRadius.circular(12)),
                             child: Center(
                               child: Text(
                                 "Update Stock",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 18),
+                                style: TextStyle(color: Colors.white, fontSize: 18),
                               ),
                             ),
                           ),
@@ -144,19 +127,14 @@ class DailyUsage extends StatelessWidget {
                         children: [
                           Text(
                             "4019 Units",
-                            style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                           Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 4.0, horizontal: 8),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: AppColor.primaryColor),
+                            padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: AppColor.primaryColor),
                             child: Text(
                               "Remaining Stock",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 14),
+                              style: TextStyle(color: Colors.white, fontSize: 14),
                             ),
                           )
                         ],
@@ -171,16 +149,11 @@ class DailyUsage extends StatelessWidget {
                           flex: 1,
                           child: Container(
                             padding: EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    width: 1, color: AppColor.primaryColor),
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12)),
+                            decoration: BoxDecoration(border: Border.all(width: 1, color: AppColor.primaryColor), color: Colors.white, borderRadius: BorderRadius.circular(12)),
                             child: Center(
                               child: Text(
                                 "Delete",
-                                style: TextStyle(
-                                    color: AppColor.primaryColor, fontSize: 18),
+                                style: TextStyle(color: AppColor.primaryColor, fontSize: 18),
                               ),
                             ),
                           ),
@@ -192,14 +165,11 @@ class DailyUsage extends StatelessWidget {
                           flex: 1,
                           child: Container(
                             padding: EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                                color: AppColor.primaryColor,
-                                borderRadius: BorderRadius.circular(12)),
+                            decoration: BoxDecoration(color: AppColor.primaryColor, borderRadius: BorderRadius.circular(12)),
                             child: Center(
                               child: Text(
                                 "Save Report",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 18),
+                                style: TextStyle(color: Colors.white, fontSize: 18),
                               ),
                             ),
                           ),

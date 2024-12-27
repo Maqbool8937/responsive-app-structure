@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
 import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
-
 
 import '../../widgets/custom_button.dart';
 import 'login_screen.dart';
@@ -17,7 +15,7 @@ class RegisterSuccessfull extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width * 0.1.w,vertical: mediaQuerySize.height*0.03.h),
+        padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width * 0.1.w, vertical: mediaQuerySize.height * 0.03.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -26,13 +24,12 @@ class RegisterSuccessfull extends StatelessWidget {
             ),
             Center(
               child: Container(
-
                 height: mediaQuerySize.height * 0.15.h,
                 width: mediaQuerySize.width * 0.2.w,
                 decoration: BoxDecoration(
-                 // color: AppColors.buttonColor,
-                  image: DecorationImage(image: AssetImage('assets/images/Vector (1).png') ),
-                  ),
+                  // color: AppColors.buttonColor,
+                  image: DecorationImage(image: AssetImage('assets/images/Vector (1).png')),
+                ),
                 child: Icon(
                   Icons.check,
                   color: Colors.white,
@@ -40,17 +37,11 @@ class RegisterSuccessfull extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
-              'Registration Successful!',
-              style: AppTextstyles.BoldBlackText()
-            ),
+            Text('Registration Successful!', style: AppTextstyles.BoldBlackText()),
             SizedBox(
               height: mediaQuerySize.height * 0.008.h,
             ),
-            Text(
-              'Your account is awaiting admin approval. You will receive a notification once your profile is activated. ',
-              style: AppTextstyles.simpleGreyText()
-            ),
+            Text('Your account is awaiting admin approval. You will receive a notification once your profile is activated. ', style: AppTextstyles.simpleGreyText()),
             SizedBox(
               height: mediaQuerySize.height * 0.03.h,
             ),

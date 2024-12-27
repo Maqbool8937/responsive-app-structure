@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:stock_calculation_app/controllers/utils/app_colors.dart';
 import 'package:stock_calculation_app/controllers/utils/app_textstyles.dart';
-
 
 import '../../../controllers/utils/app_extension.dart';
 import '../../widgets/customField.dart';
@@ -20,7 +18,7 @@ class ChangePasswordFromlink extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: mediaQuerySize.width*0.04.w,vertical: mediaQuerySize.height*0.03.h),
+        padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width * 0.04.w, vertical: mediaQuerySize.height * 0.03.h),
         child: Form(
           key: formKey,
           child: Column(
@@ -36,17 +34,11 @@ class ChangePasswordFromlink extends StatelessWidget {
               SizedBox(
                 height: mediaQuerySize.height * 0.02.h,
               ),
-              Text(
-                'Enter your Email Address to receive ',
-                style: AppTextstyles.simpleGreyText()
-              ),
+              Text('Enter your Email Address to receive ', style: AppTextstyles.simpleGreyText()),
               SizedBox(
                 height: mediaQuerySize.height * 0.01.h,
               ),
-              Text(
-                'a password reset link. ',
-                style: AppTextstyles.simpleGreyText()
-              ),
+              Text('a password reset link. ', style: AppTextstyles.simpleGreyText()),
               SizedBox(
                 height: mediaQuerySize.height * 0.03.h,
               ),
@@ -56,7 +48,7 @@ class ChangePasswordFromlink extends StatelessWidget {
                   if (value == null || value.trim().isEmpty) {
                     return 'Please enter the email field';
                   }
-                 
+
                   if (!AppExtension.emailExtension.hasMatch(value.trim())) {
                     return 'Please enter a valid email address';
                   }
@@ -81,20 +73,9 @@ class ChangePasswordFromlink extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Remember Password?',
-                    style: AppTextstyles.simpleGreyText()
-                  ),
+                  Text('Remember Password?', style: AppTextstyles.simpleGreyText()),
                   Row(
-                    children: [
-                      Text('  Back to', style: AppTextstyles.simpleGreyText()),
-                      TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Log in',
-                            style: AppTextstyles.simpleRedText()
-                          ))
-                    ],
+                    children: [Text('  Back to', style: AppTextstyles.simpleGreyText()), TextButton(onPressed: () {}, child: Text('Log in', style: AppTextstyles.simpleRedText()))],
                   )
                 ],
               )
