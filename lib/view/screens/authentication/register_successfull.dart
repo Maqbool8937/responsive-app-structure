@@ -15,7 +15,7 @@ class RegisterSuccessfull extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width * 0.1.w, vertical: mediaQuerySize.height * 0.03.h),
+        padding: EdgeInsets.symmetric(horizontal: mediaQuerySize.width * 0.15.w, vertical: mediaQuerySize.height * 0.03.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

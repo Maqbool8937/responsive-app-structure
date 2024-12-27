@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stock_calculation_app/utils/colors.dart';
+
+
+import '../../controllers/utils/colors.dart';
 
 class AddTypeCard extends StatefulWidget {
   final List<String> items;

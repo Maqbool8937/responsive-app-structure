@@ -5,17 +5,21 @@ import 'app_colors.dart';
 
 class AppTextstyles {
   static TextStyle simpleTextBold() {
-    return TextStyle(color: AppColors.whiteColor, fontSize: 18, fontWeight: FontWeight.bold);
+    return TextStyle(
+      fontFamily: 'medium',
+      color: AppColors.whiteColor, fontSize: 16, fontWeight: FontWeight.w400);
   }
 
   static TextStyle simpleText() {
     return TextStyle(
+      fontFamily: 'regular',
       color: AppColors.whiteColor,
       fontSize: 14,
     );
   }
   static TextStyle simpleGreyText() { 
     return TextStyle(
+      fontFamily: 'regular',
       color: AppColors.greyColor,
       fontSize: 16,
     );
@@ -29,6 +33,7 @@ class AppTextstyles {
   }
   static TextStyle simpleRedText() {
     return TextStyle(
+      fontFamily: 'medium',
       color: AppColors.buttonColor,
       fontSize: 18,
     );
@@ -41,6 +46,8 @@ class AppTextstyles {
     );
   }
   static TextStyle FullBlackBoldText() { 
-    return TextStyle(fontSize: 28,fontWeight: FontWeight.bold,color: AppColors.fullBlackColor);
+    return TextStyle(
+      fontFamily: 'bold',
+      fontSize: 18,fontWeight: FontWeight.w500,color: AppColors.fullBlackColor);
   }
 }
